@@ -1,20 +1,6 @@
-import readline from "node:readline";
+const dateConversion = (a) => {
+  const regex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
+  return regex.test(a) ? a.split("-").join("/") : "Format tanggal salah";
+};
 
-
-async function dateConversion() {
-    const rd = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-
-    try {
-        const jawaban = await rd.question("Masukkan Tanggal DD-MM-YYYY: ");
-        const regex = /^\d{2}-\d{2}-\d{4}$/;
-    
-    } catch (error) {
-        console.error("error: ", error.messege)
-    }
-    
-    rd.close();
-}
-dateConversion()
+export default dateConversion;
